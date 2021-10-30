@@ -1,4 +1,5 @@
 import React, { Component } from 'react';  
+import { withRouter } from "react-router";  
 import { Label, Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
   
 class Reg extends Component {  
@@ -83,7 +84,10 @@ class Reg extends Component {
     }).then((Response) => Response.json())  
       .then((Result) => {  
         if (Result.Status == 'Success')  
-                this.props.history.push("/Dashboard");  
+        {
+            this.props.onUsernameChange(this.state.FirstName);
+            this.props.history.push('/Dashboard');
+        } 
         else  
           alert('Sorrrrrry !!!! Un-authenticated User !!!!!')  
       })  
@@ -146,4 +150,4 @@ class Reg extends Component {
   }  
 }  
   
-export default Reg; 
+export default withRouter(Reg); 

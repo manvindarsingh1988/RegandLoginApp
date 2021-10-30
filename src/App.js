@@ -1,5 +1,4 @@
-import React, { Component } from 'react';  
-import logo from './logo.svg';  
+import React, { Component } from 'react';    
 import './App.css';  
 import Login from './Login';  
 import Reg from './Reg';  
@@ -37,7 +36,7 @@ class App extends Component {
         <UsernameContext.Provider value={this.state.username}>  
           <Switch>    
             <Route exact path='/Login' render={()=><Login onUsernameChange={this.onUsernameChange} history={this.props.history} /> }></Route>   
-            <Route path='/Signup' render={()=><Reg onUsernameChange={this.onUsernameChange} /> } />
+            <Route path='/Signup' render={()=><Reg onUsernameChange={this.onUsernameChange} history={this.props.history}/> } />
           </Switch>    
           <Switch>  
           <Route path='/Dashboard' render={()=><Dashboard UserName={this.state.UserName} /> } />    
